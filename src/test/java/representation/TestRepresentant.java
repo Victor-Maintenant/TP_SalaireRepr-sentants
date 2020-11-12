@@ -1,6 +1,7 @@
 package representation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -83,4 +84,46 @@ public class TestRepresentant {
 
 	}
         
+        @Test
+        public void testMoisInvalideInferieurEnregistrerCA(){
+            assertThrows(IllegalArgumentException.class, () -> {
+                    r.enregistrerCA(-1, FIXE_BASTIDE);
+            });
+        }
+        
+        @Test
+        public void testMoisInvalideSupérieurEnregistrerCA(){
+            assertThrows(IllegalArgumentException.class, () -> {
+                    r.enregistrerCA(12, FIXE_BASTIDE);
+            });
+        }
+        
+        @Test
+        public void testMoisInvalideInferieurSalaireMensuel(){
+            assertThrows(IllegalArgumentException.class, () -> {
+                r.salaireMensuel(-1, 0.1f);
+            });
+        }
+        
+        @Test
+        public void testMoisInvalideSupérieurSalaireMensuel(){
+            assertThrows(IllegalArgumentException.class, () -> {
+                     r.salaireMensuel(-1, 0.1f);
+            });
+        }
+	
+        @Test
+        public void testMontantInvalideEnregistrerCA(){
+            assertThrows(IllegalArgumentException.class, () -> {
+                    r.enregistrerCA(0, -1);
+            });
+        }
+        
+        @Test
+        public void testPourcentageInvalideSalaireMensuels(){
+            assertThrows(IllegalArgumentException.class, () -> {
+                    r.salaireMensuel(0, -0.1f);
+            });
+        }
+	
 }
