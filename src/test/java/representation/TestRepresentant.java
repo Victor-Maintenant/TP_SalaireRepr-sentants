@@ -85,45 +85,54 @@ public class TestRepresentant {
 	}
         
         @Test
-        public void testMoisInvalideInferieurEnregistrerCA(){
-            assertThrows(IllegalArgumentException.class, () -> {
-                    r.enregistrerCA(-1, FIXE_BASTIDE);
-            });
-        }
-        
-        @Test
-        public void testMoisInvalideSupérieurEnregistrerCA(){
-            assertThrows(IllegalArgumentException.class, () -> {
-                    r.enregistrerCA(12, FIXE_BASTIDE);
-            });
-        }
-        
-        @Test
-        public void testMoisInvalideInferieurSalaireMensuel(){
-            assertThrows(IllegalArgumentException.class, () -> {
-                r.salaireMensuel(-1, 0.1f);
-            });
-        }
-        
-        @Test
-        public void testMoisInvalideSupérieurSalaireMensuel(){
-            assertThrows(IllegalArgumentException.class, () -> {
-                     r.salaireMensuel(-1, 0.1f);
-            });
-        }
-	
-        @Test
-        public void testMontantInvalideEnregistrerCA(){
-            assertThrows(IllegalArgumentException.class, () -> {
-                    r.enregistrerCA(0, -1);
-            });
-        }
-        
-        @Test
-        public void testPourcentageInvalideSalaireMensuels(){
+    public void testMoisInvalideInferieurEnregistrerCA(){
+        assertThrows(IllegalArgumentException.class, () -> {
+                r.enregistrerCA(-1, FIXE_BASTIDE);
+        });
+    }
+    
+    @Test
+    public void testMoisInvalideSupérieurEnregistrerCA(){
+        assertThrows(IllegalArgumentException.class, () -> {
+                r.enregistrerCA(12, FIXE_BASTIDE);
+        });
+    }
+    
+    @Test
+    public void testMoisInvalideInferieurSalaireMensuel(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            r.salaireMensuel(-1, 0.1f);
+        });
+    }
+    
+    @Test
+    public void testMoisInvalideSupérieurSalaireMensuel(){
+        assertThrows(IllegalArgumentException.class, () -> {
+                 r.salaireMensuel(-1, 0.1f);
+        });
+    }
+
+    @Test
+    public void testMontantInvalideEnregistrerCA(){
+        assertThrows(IllegalArgumentException.class, () -> {
+                r.enregistrerCA(0, -1);
+        });
+    }
+    
+    @Test
+    public void testPourcentageInvalideSalaireMensuels(){
             assertThrows(IllegalArgumentException.class, () -> {
                     r.salaireMensuel(0, -0.1f);
             });
         }
 	
+    @Test
+    public void testToStringRepresentant() {
+    	assertEquals("Representant{numero=36, nom=Bastide, prenom=Rémi}",r.toString());
+    }
+    
+    @Test
+    public void testToStringZG() {
+    	assertEquals("ZoneGeographique{numero=1, nom=Occitanie, indemniteRepas=200.0}", occitanie.toString());
+    }
 }
