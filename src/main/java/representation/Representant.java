@@ -63,7 +63,6 @@ public class Representant {
 	 * @param montant le CA réalisé pour ce mois (positif ou nul)
 	 **/
 	public void enregistrerCA(int mois, float montant) {
-		// vérifier les paramètres
 		if (mois < 0 || mois > 11) {
 			throw new IllegalArgumentException("Le mois doit être compris entre 0 et 11");
 		}
@@ -80,7 +79,7 @@ public class Representant {
 	 * @return le salaire pour ce mois, tenant compte du salaire fixe, de l'indemnité repas, et du pourcentage sur CA
 	 */
 	public float salaireMensuel(int mois, float pourcentage) {
-                if (mois < 0 || mois > 11) {
+        if (mois < 0 || mois > 11) {
 			throw new IllegalArgumentException("Le mois doit être compris entre 0 et 11");
 		}
 		if (pourcentage < 0) {
